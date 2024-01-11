@@ -2,6 +2,9 @@
 include 'controllers/LoginController.php';
 include 'models/LoginModel.php';
 include 'views/LoginView.php';
+include 'controllers/HotelesController.php';
+include 'models/HotelesModel.php';
+include 'views/HotelesView.php';
 
 // Define la acción por defecto
 define('ACCION_DEFECTO', 'mostrarLogin');
