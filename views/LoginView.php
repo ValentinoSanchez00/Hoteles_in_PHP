@@ -16,7 +16,7 @@ class LoginView{
         echo '</form>';
     }
     public function mostrarFormularioConErrores() {
-        echo 'Error: Usuaro o Contraseña incorrectos';
+        echo '<p class="error-message">Error: Usuaro o Contraseña incorrectos</p>';
         echo '<form action="index.php?controller=Login&action=comprobarUsuario" method="POST">';
         echo '<label>Usuario:</label>';
         echo '<input type="text" name="usuario"">';
@@ -34,4 +34,4 @@ class LoginView{
     
     
 }
-?>
+
