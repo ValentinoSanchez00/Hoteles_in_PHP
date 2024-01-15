@@ -1,5 +1,8 @@
 <?php
 
+include $_SERVER['DOCUMENT_ROOT'] . '/hoteles/models/Hotel.php';
+
+
 class HotelesController {
 
     private $model;
@@ -13,11 +16,19 @@ class HotelesController {
     public function mostrarHoteles() {
         session_start();
         if (!$_SESSION["nombre"]) {
-     header("Location: index.php?controller=Login&action=mostrarFormularioConErrores");
+            header("Location: index.php?controller=Login&action=mostrarFormularioConErrores");
         }
 
         $hoteles = $this->model->getHoteles();
-
-        $this->view->mostrarHoteles($hoteles);
+        $arraydehoteles=array();
+            foreach ($hoteles as $key => $hotel) {
+          
+                $nuevohotel=new Hotel($hotel["id"],$hotel["nombre"],$hotel["direccion"],$hotel["ciudad"],$hotel["pais"],$hotel["num_habitaciones"],$hotel["descripcion"],null);
+         
+                array_push($arraydehoteles, $nuevohotel);
+            }
+            
+            
+        $this->view->mostrarHoteles($arraydehoteles);
     }
 }

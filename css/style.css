@@ -16,10 +16,15 @@ body {
 .container {
     max-width: 800px;
     margin: 50px auto;
-    background-color: #fff;
+    background-color: #F2F4F4;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 /* Estilos del formulario */
@@ -50,6 +55,17 @@ input[type="submit"] {
 input[type="submit"]:hover {
     background-color: #2980b9;
 }
+
+
+.contenedor__hoteles{
+    display: flex;
+}
+.hoteles{
+    margin: 2rem;
+    border: 1px solid black;
+    padding: 1rem;
+}
+
 
 /* Estilos para mensajes de error */
 .error-message {

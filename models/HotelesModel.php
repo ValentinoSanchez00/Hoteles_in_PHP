@@ -16,7 +16,7 @@ class HotelesModel{
 
     
     public function getHoteles() {
-         $stmt = $this->pdo->prepare('SELECT nombre,direccion,ciudad,pais,num_habitaciones,descripcion from hoteles');
+         $stmt = $this->pdo->prepare('SELECT * from hoteles');
          $stmt->execute();
          return $stmt->fetchAll(PDO::FETCH_ASSOC);
          
