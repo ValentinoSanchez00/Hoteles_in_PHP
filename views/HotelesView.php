@@ -18,7 +18,7 @@ class HotelesView {
             echo "<p>".$hotel->getDireccion()." ".$hotel->getCiudad()."(".$hotel->getPais().")"."</p>";
             echo "<p> Numero de habitaciones: " . $hotel->getNum_habitaciones() . "</p>";
             echo "<p>" . $hotel->getDescripcion() . "</p>";
-            echo '<a href="index.php?controller=Habitaciones&action=mostrarHabitaciones">Ver mas detalles</a>';
+            echo '<a href="index.php?controller=Habitaciones&action=mostrarHabitaciones&id='.$hotel->getId().'">Ver mas detalles</a>';
             echo '</div>';
         }
         

@@ -15,8 +15,10 @@ class HabitacionessModel{
     }
 
     
-    public function getHabitacionesDisponibles() {
-        
+    public function getHabitacionesconid($id) {
+         $stmt = $this->pdo->prepare('SELECT * from habitaciones where id_hotel='.$id);
+         $stmt->execute();
+         return $stmt->fetchAll(PDO::FETCH_ASSOC);
          
          
     }
