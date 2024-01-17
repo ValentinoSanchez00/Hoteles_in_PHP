@@ -6,8 +6,8 @@ class HabitacionesController {
     private $view;
 
     public function __construct() {
-        $this->model = new HabitacionesModel();
-        $this->view = new HabitacionesView();
+        $this->model = new HabitacionessModel ();
+        $this->view = new HabitacionesView ();
     }
 
     public function mostrarHabitaciones() {
@@ -28,7 +28,7 @@ class HabitacionesController {
             }
             
             
-        $this->view->mostrarHabitacion($arraydehabitaciones);
+        $this->view->mostrarHabitaciones($arraydehabitaciones);
 
     }
 }
