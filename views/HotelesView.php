@@ -19,6 +19,7 @@ class HotelesView {
             echo "<p> Numero de habitaciones: " . $hotel->getNum_habitaciones() . "</p>";
             echo "<p>" . $hotel->getDescripcion() . "</p>";
             echo '<a href="index.php?controller=Habitaciones&action=mostrarHabitaciones&id='.$hotel->getId().'">Ver mas detalles</a>';
+           
             echo '</div>';
         }
         

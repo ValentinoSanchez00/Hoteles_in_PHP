@@ -27,10 +27,10 @@ class LoginController {
 
 
         $usuarios = $this->model->comprobarUsuario($usr, $pass_coding);
-
+        $idusu=$usuarios;
         if ($usuarios) {
             session_start();
-            $_SESSION['nombre']=$usr;
+            $_SESSION['id']=$idusu;
             
             header("Location: index.php?controller=Hoteles&action=mostrarHoteles");
             
