@@ -1,7 +1,5 @@
 <?php
 
-include 'db/DB.php';
-
 class ReservasModel {
 
     private $bd;
@@ -22,15 +20,12 @@ class ReservasModel {
             return true;
         }
     }
-    
-    
+
     public function insertarReserva($id_hotel, $id_habitacion, $fecha_entrada, $fecha_salida, $id_usuario) {
-        $stmt= $this->pdo->prepare('INSERT INTO reservas values((SELECT MAX(id)+1 from reservas),:id_usuario,:id_hotel,:id_habitacion,:fecha_entrada,:fecha_salida)');
-         $stmt->execute(array('id_hotel' => $id_hotel, 'id_habitacion' => $id_habitacion, 'fecha_entrada' => $fecha_entrada, 'fecha_salida' => $fecha_salida,'id_usuario'=>$id_usuario));
-         header("Location:../index.php?controller=Habitaciones&action=mostrarHabitaciones&id='.$id_hotel.'");
+        $stmt = $this->pdo->prepare('INSERT INTO reservas (id, id_usuario, id_hotel, id_habitacion, fecha_entrada, fecha_salida) 
+                            SELECT MAX(id) + 1, :id_usuario, :id_hotel, :id_habitacion, :fecha_entrada, :fecha_salida 
+                            FROM reservas');
+        $stmt->execute(array('id_usuario' => $id_usuario, 'id_hotel' => $id_hotel, 'id_habitacion' => $id_habitacion, 'fecha_entrada' => $fecha_entrada, 'fecha_salida' => $fecha_salida));
+        header("Location:../index.php?controller=Habitaciones&action=mostrarHabitaciones&id={$id_hotel}");
     }
-    
-    
-    
-    
 }

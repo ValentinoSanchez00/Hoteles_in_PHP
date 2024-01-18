@@ -8,9 +8,9 @@ include 'views/HotelesView.php';
 include 'controllers/HabitacionesController.php';
 include 'models/HabitacionesModel.php';
 include 'views/HabitacionesView.php';
-//include 'controllers/HabitacionesController.php';
-//include 'models/HabitacionesModel.php';
-//include 'views/HabitacionesView.php';
+include 'controllers/ReservasController.php';
+include 'models/ReservasModel.php';
+include 'views/ReservasView.php';
 
 // Define la acción por defecto
 define('ACCION_DEFECTO', 'mostrarLogin');

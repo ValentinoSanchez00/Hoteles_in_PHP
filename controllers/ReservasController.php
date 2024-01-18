@@ -1,7 +1,7 @@
 <?php
 
 
-class LoginController {
+class ReservasController {
 
     private $model;
     private $view;
@@ -21,11 +21,13 @@ class LoginController {
         
        $puedoreserva = $this->model->comprobarReserva($id_hotel,$id_habitacion,$fecha_entrada,$fecha_salida);
        if ($puedoreserva) {
-           $id_usuario=$_SERVER["id"];
+           session_start();
+           $id_usuario=$_SESSION["id"];
            $this->model->insertarReserva($id_hotel,$id_habitacion,$fecha_entrada,$fecha_salida,$id_usuario); 
+            header("Location: index.php?controller=Habitaciones&action=mostrarHabitaciones&succes&id=".$id_hotel);
        }
         else {
-           
+           header("Location: index.php?controller=Habitaciones&action=mostrarHabitaciones&wrong&id=".$id_hotel);
        }
         
     }

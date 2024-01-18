@@ -15,7 +15,7 @@ class HotelesController {
 
     public function mostrarHoteles() {
         session_start();
-        if (!$_SESSION["nombre"]) {
+        if (!$_SESSION["id"]) {
             header("Location: index.php?controller=Login&action=mostrarFormularioConErrores");
         }
 
