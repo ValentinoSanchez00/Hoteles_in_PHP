@@ -23,7 +23,7 @@ class HotelesController {
         $arraydehoteles=array();
             foreach ($hoteles as $key => $hotel) {
           
-                $nuevohotel=new Hotel($hotel["id"],$hotel["nombre"],$hotel["direccion"],$hotel["ciudad"],$hotel["pais"],$hotel["num_habitaciones"],$hotel["descripcion"],null);
+                $nuevohotel=new Hotel($hotel["id"],$hotel["nombre"],$hotel["direccion"],$hotel["ciudad"],$hotel["pais"],$hotel["num_habitaciones"],$hotel["descripcion"],$hotel["foto"]);
          
                 array_push($arraydehoteles, $nuevohotel);
             }

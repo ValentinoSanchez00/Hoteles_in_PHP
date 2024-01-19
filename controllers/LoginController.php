@@ -25,17 +25,30 @@ class LoginController {
         $pass = $_POST["password"];
         $pass_coding = hash("sha256", $pass);
 
-
         $usuarios = $this->model->comprobarUsuario($usr, $pass_coding);
-        $idusu=$usuarios;
+        $idusu = $usuarios["id"];
         if ($usuarios) {
             session_start();
-            $_SESSION['id']=$idusu;
-            
+            $_SESSION['id'] = $idusu;
+            $_SESSION['nombre']=$usuarios["nombre"];
+            $_SESSION['rol']=$usuarios["rol"];
+
             header("Location: index.php?controller=Hoteles&action=mostrarHoteles");
-            
         } else {
             $this->view->mostrarFormularioConErrores();
         }
+    }
+
+    public function cerrarsesion() {
+        session_start();
+
+// Limpia la información de la sesión actual
+        $_SESSION = array();
+
+// Destruye la sesión actual
+        session_destroy();
+
+// Redirecciona al usuario a la página de inicio
+        header("Location: ./index.php?controller=Login&action=mostrarFormulario");
     }
 }

@@ -14,12 +14,13 @@ class LoginModel {
     }
 
     public function comprobarUsuario($usuario, $password) {
-
+        
         $stmt = $this->pdo->prepare('SELECT * from usuarios where nombre=:nombre and contraseña=:password');
         $stmt->execute(array('nombre' => $usuario, 'password' => $password));
         if ($stmt->rowCount() > 0) {
             foreach ($stmt as $user) {
-                return $user["id"];
+                
+                return $user;
             }
         } else {
             return false;

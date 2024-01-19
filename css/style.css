@@ -58,9 +58,12 @@ input[type="submit"]:hover {
 
 
 .contenedor__hoteles{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 .hoteles{
+    width: 40%;
     margin: 2rem;
     border: 1px solid black;
     padding: 1rem;
@@ -72,4 +75,18 @@ input[type="submit"]:hover {
     color: #e74c3c;
     margin-bottom: 15px;
 }
+.a_navegacion{
+    margin: 1rem;
+    text-decoration: none;
+    color: white;
+    background-color: #0B5ED7;
+    padding: 0.5rem;
+    border: 1px solid black;
+    border-radius: 10px;       
+}
+.a_navegacion:hover{
+    background-color: transparent;
+    
+}
+
 

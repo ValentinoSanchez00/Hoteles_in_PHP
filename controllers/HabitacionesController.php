@@ -33,6 +33,7 @@ class HabitacionesController {
     }
 
     public function verHabitaciones($arraydehabitaciones) {
+      
 
         if (isset($_GET["succes"])) {
              $this->view->mostrarHabitacionesCorrecta($arraydehabitaciones);
