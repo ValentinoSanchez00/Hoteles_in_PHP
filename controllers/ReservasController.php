@@ -23,7 +23,8 @@ class ReservasController {
         $fecha_entrada=$_POST['fecha_entrada'];
         $fecha_salida=$_POST['fecha_salida'];
         
-       $puedoreserva = $this->model->comprobarReserva($id_hotel,$id_habitacion,$fecha_entrada,$fecha_salida);
+        try {
+              $puedoreserva = $this->model->comprobarReserva($id_hotel,$id_habitacion,$fecha_entrada,$fecha_salida);
        if ($puedoreserva) {
            session_start();
            $id_usuario=$_SESSION["id"];
@@ -33,6 +34,13 @@ class ReservasController {
         else {
            header("Location: index.php?controller=Habitaciones&action=mostrarHabitaciones&wrong&id=".$id_hotel);
        }
+        } catch (Exception $exc) {
+            echo "Error inesperado";
+        }
+
+
+
+      
         
     }
     
@@ -61,6 +69,10 @@ class ReservasController {
         if (!$_SESSION["id"]) {
             header("Location: index.php?controller=Login&action=mostrarFormularioConErrores");
         }
+        
+        
+        try {
+            
         $consulta=$this->model->mostrarDetalleReserva($_GET['id_reserva']);
          $arraydereservadetallada=[];
         foreach ($consulta as $reserva) { 
@@ -77,6 +89,10 @@ class ReservasController {
             
         }
         $this->view->mostrarReservasDetallada($arraydereservadetallada);
+        } catch (Exception $exc) {
+              echo "Error inesperado";
+        }
+
         
         
     }

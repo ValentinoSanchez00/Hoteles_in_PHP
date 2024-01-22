@@ -19,7 +19,9 @@ class HabitacionesController {
         }
 
         $id = $_GET['id'];
-        $habitaciones = $this->model->getHabitacionesconid($id);
+        
+        try {
+               $habitaciones = $this->model->getHabitacionesconid($id);
 
         $arraydehabitaciones = array();
         foreach ($habitaciones as $key => $habitacionfila) {
@@ -30,6 +32,11 @@ class HabitacionesController {
         }
 
         $this-> verHabitaciones($arraydehabitaciones);
+        } catch (Exception $exc) {
+            echo "Error inesperado";
+        }
+
+     
     }
 
     public function verHabitaciones($arraydehabitaciones) {

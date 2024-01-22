@@ -12,7 +12,8 @@ class DB {
             $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
            
         } catch (Exception $ex) {
-            echo $ex->getMessage();
+            header("Location: index.php?controller=Login&action=mostrarMantenimiento");
+           
         }
     }
 

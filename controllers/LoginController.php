@@ -24,19 +24,28 @@ class LoginController {
         $usr = $_POST["usuario"];
         $pass = $_POST["password"];
         $pass_coding = hash("sha256", $pass);
+        try {
+             $usuarios = $this->model->comprobarUsuario($usr, $pass_coding);
+        } catch (Exception $exc) {
+          "Error inesperado";
+        }
 
-        $usuarios = $this->model->comprobarUsuario($usr, $pass_coding);
+
+
+       
+       
         $idusu = $usuarios["id"];
         if ($usuarios) {
             session_start();
             $_SESSION['id'] = $idusu;
-            $_SESSION['nombre']=$usuarios["nombre"];
-            $_SESSION['rol']=$usuarios["rol"];
+            $_SESSION['nombre'] = $usuarios["nombre"];
+            $_SESSION['rol'] = $usuarios["rol"];
 
             header("Location: index.php?controller=Hoteles&action=mostrarHoteles");
         } else {
             $this->view->mostrarFormularioConErrores();
         }
+        
     }
 
     public function cerrarsesion() {
@@ -51,4 +60,9 @@ class LoginController {
 // Redirecciona al usuario a la página de inicio
         header("Location: ./index.php?controller=Login&action=mostrarFormulario");
     }
+    
+    public function mostrarMantenimiento() {
+        header("Location: ./views/MantenimientoView.php");
+    }
+    
 }

@@ -18,8 +18,8 @@ class HotelesController {
         if (!$_SESSION["id"]) {
             header("Location: index.php?controller=Login&action=mostrarFormularioConErrores");
         }
-
-        $hoteles = $this->model->getHoteles();
+        try {
+            $hoteles = $this->model->getHoteles();
         $arraydehoteles=array();
             foreach ($hoteles as $key => $hotel) {
           
@@ -30,5 +30,11 @@ class HotelesController {
             
             
         $this->view->mostrarHoteles($arraydehoteles);
+        } catch (Exception $exc) {
+            echo  "Error inesperado";
+        }
+
+
+        
     }
 }
