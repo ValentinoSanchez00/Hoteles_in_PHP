@@ -2,6 +2,11 @@
 
 class HabitacionesView {
 
+    /**
+     * Muestra la información de las habitaciones.
+     * @param array $array Arreglo de objetos Habitacion.
+     * @return void
+     */
     public function mostrarHabitaciones($array) {
         ?>
 
@@ -17,8 +22,6 @@ class HabitacionesView {
             <?php
             $hoy = date('Y-m-d');
 
-            //SELECT * FROM reservas WHERE id_habitacion = 1 AND '2022-01-01' BETWEEN fecha_entrada AND fecha_salida     SI NO SALE NADA; SE PUEDE RESERVAR;
-
             foreach ($array as $index => $habitacion) {
                 echo '<div class="hoteles">';
                 echo "<p> Numero de habitación:" . $habitacion->getNum_habitaciones() . "</p>";
@@ -26,7 +29,7 @@ class HabitacionesView {
                 echo "<p>Precio:" . $habitacion->getPrecio() . "€</p>";
                 echo "<p>" . $habitacion->getDescripcion() . "</p>";
                 $id_capa = "miCapa_" . $index;
-                $fechaactual = date("Y-m-d",);
+                $fechaactual = date("Y-m-d");
                 $fechaManana = date("Y-m-d", strtotime($fechaactual . ' +1 day'));
                 echo '<td>
                         <form action="index.php?controller=Reservas&action=comprobarReserva&id_hotel=' . $habitacion->getId_hotel() . '&id_habitacion=' . $habitacion->getId() . '" method="POST">
@@ -40,7 +43,6 @@ class HabitacionesView {
                                </div>
                                <button type="submit" class="btn btn-primary">Reservar</button>
                           </form>
-                                           
                        </td>';
                 echo '</div>';
             }
@@ -54,6 +56,11 @@ class HabitacionesView {
         <?php
     }
 
+    /**
+     * Muestra un mensaje de error cuando la reserva falla.
+     * @param array $array Arreglo de objetos Habitacion.
+     * @return void
+     */
     public function mostrarHabitacionesFallada($array) {
         ?>
 
@@ -72,7 +79,6 @@ class HabitacionesView {
 
         <?php
         $hoy = date('Y-m-d');
-        //SELECT * FROM reservas WHERE id_habitacion = 1 AND '2022-01-01' BETWEEN fecha_entrada AND fecha_salida     SI NO SALE NADA; SE PUEDE RESERVAR;
 
         foreach ($array as $index => $habitacion) {
             echo '<div class="hoteles">';
@@ -81,7 +87,7 @@ class HabitacionesView {
             echo "<p>Precio:" . $habitacion->getPrecio() . "€</p>";
             echo "<p>" . $habitacion->getDescripcion() . "</p>";
             $id_capa = "miCapa_" . $index;
-            $fechaactual = date("Y-m-d",);
+            $fechaactual = date("Y-m-d");
             $fechaManana = date("Y-m-d", strtotime($fechaactual . ' +1 day'));
             echo '<td>
                         <form action="index.php?controller=Reservas&action=comprobarReserva&id_hotel=' . $habitacion->getId_hotel() . '&id_habitacion=' . $habitacion->getId() . '" method="POST">
@@ -95,7 +101,6 @@ class HabitacionesView {
                                </div>
                                <button type="submit" class="btn btn-primary">Reservar</button>
                           </form>
-                                           
                        </td>';
             echo '</div>';
         }
@@ -109,14 +114,19 @@ class HabitacionesView {
         <?php
     }
 
+    /**
+     * Muestra un mensaje de éxito después de una reserva exitosa.
+     * @param array $array Arreglo de objetos Habitacion.
+     * @return void
+     */
     public function mostrarHabitacionesCorrecta($array) {
         ?>
 
         <h1>Bienvenido <?php echo ucfirst($_SESSION['nombre']); ?></h1>
         <?php
-          if ($_SESSION["rol"]==1) {
-                echo ' <a class="a_navegacion" href="index.php?controller=Reservas&action=mostrarReservas">Mostrar Reservas</a>';
-            }
+        if ($_SESSION["rol"] == 1) {
+            echo ' <a class="a_navegacion" href="index.php?controller=Reservas&action=mostrarReservas">Mostrar Reservas</a>';
+        }
         ?>
         <div class="alert alert-success" role="alert">
             Reserva Realizada Correctamente
@@ -126,7 +136,6 @@ class HabitacionesView {
 
         <?php
         $hoy = date('Y-m-d');
-        //SELECT * FROM reservas WHERE id_habitacion = 1 AND '2022-01-01' BETWEEN fecha_entrada AND fecha_salida     SI NO SALE NADA; SE PUEDE RESERVAR;
 
         foreach ($array as $index => $habitacion) {
             echo '<div class="hoteles">';
@@ -135,7 +144,7 @@ class HabitacionesView {
             echo "<p>Precio:" . $habitacion->getPrecio() . "€</p>";
             echo "<p>" . $habitacion->getDescripcion() . "</p>";
             $id_capa = "miCapa_" . $index;
-            $fechaactual = date("Y-m-d",);
+            $fechaactual = date("Y-m-d");
             $fechaManana = date("Y-m-d", strtotime($fechaactual . ' +1 day'));
             echo '<td>
                         <form action="index.php?controller=Reservas&action=comprobarReserva&id_hotel=' . $habitacion->getId_hotel() . '&id_habitacion=' . $habitacion->getId() . '" method="POST">
@@ -149,7 +158,6 @@ class HabitacionesView {
                                </div>
                                <button type="submit" class="btn btn-primary">Reservar</button>
                           </form>
-                                           
                        </td>';
             echo '</div>';
         }

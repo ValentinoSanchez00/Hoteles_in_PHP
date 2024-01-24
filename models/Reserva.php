@@ -1,12 +1,25 @@
 <?php
 
-class Reserva{
+class Reserva {
+    // Propiedades de la reserva
     private $id;
     private $id_usuario;
     private $id_hotel;
     private $id_habitacion;
     private $fecha_entrada;
     private $fecha_salida;
+
+    // Constructor para inicializar las propiedades al crear una instancia
+    public function __construct($id, $id_usuario, $id_hotel, $id_habitacion, $fecha_entrada, $fecha_salida) {
+        $this->id = $id;
+        $this->id_usuario = $id_usuario;
+        $this->id_hotel = $id_hotel;
+        $this->id_habitacion = $id_habitacion;
+        $this->fecha_entrada = $fecha_entrada;
+        $this->fecha_salida = $fecha_salida;
+    }
+
+    // Métodos para acceder y modificar las propiedades
     public function getId() {
         return $this->id;
     }
@@ -54,16 +67,4 @@ class Reserva{
     public function setFecha_salida($fecha_salida): void {
         $this->fecha_salida = $fecha_salida;
     }
-
-    public function __construct($id, $id_usuario, $id_hotel, $id_habitacion, $fecha_entrada, $fecha_salida) {
-        $this->id = $id;
-        $this->id_usuario = $id_usuario;
-        $this->id_hotel = $id_hotel;
-        $this->id_habitacion = $id_habitacion;
-        $this->fecha_entrada = $fecha_entrada;
-        $this->fecha_salida = $fecha_salida;
-    }
-
-    
 }
-

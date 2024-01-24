@@ -1,6 +1,7 @@
 <?php
 
-class Habitacion{
+class Habitacion {
+    // Propiedades de la habitación
     private $id;
     private $id_hotel;
     private $num_habitaciones;
@@ -8,6 +9,7 @@ class Habitacion{
     private $precio;
     private $descripcion;
     
+    // Métodos para acceder y modificar las propiedades
     public function getId() {
         return $this->id;
     }
@@ -56,6 +58,7 @@ class Habitacion{
         $this->descripcion = $descripcion;
     }
 
+    // Constructor para inicializar las propiedades al crear una instancia
     public function __construct($id, $id_hotel, $num_habitaciones, $tipo, $precio, $descripcion) {
         $this->id = $id;
         $this->id_hotel = $id_hotel;
@@ -64,8 +67,4 @@ class Habitacion{
         $this->precio = $precio;
         $this->descripcion = $descripcion;
     }
-
-    
-    
-    
 }

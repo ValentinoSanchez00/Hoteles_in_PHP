@@ -1,5 +1,7 @@
 <?php
-class Hotel{
+
+class Hotel {
+    // Propiedades del hotel
     private $id;
     private $nombre;
     private $direccion;
@@ -9,6 +11,7 @@ class Hotel{
     private $descripcion;
     private $foto;
     
+    // Constructor para inicializar las propiedades al crear una instancia
     public function __construct($id, $nombre, $direccion, $ciudad, $pais, $num_habitaciones, $descripcion, $foto) {
         $this->id = $id;
         $this->nombre = $nombre;
@@ -20,6 +23,7 @@ class Hotel{
         $this->foto = $foto;
     }
 
+    // Métodos para acceder y modificar las propiedades
     public function getId() {
         return $this->id;
     }
@@ -83,9 +87,4 @@ class Hotel{
     public function setFoto($foto): void {
         $this->foto = $foto;
     }
-
- 
-    
-    
-    
 }

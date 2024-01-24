@@ -1,9 +1,10 @@
-/* Estilos generales */
+/* Estilos generales para el cuerpo de la página */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-image: url(../assets/images/fondo.PNG);
+    /* Configuración del fondo */
     top: 0;
     left: 0;
     width: 100%;
@@ -13,6 +14,7 @@ body {
     background-repeat: no-repeat;
 }
 
+/* Estilos para el contenedor principal */
 .container {
     max-width: 800px;
     margin: 50px auto;
@@ -24,12 +26,10 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 }
 
-/* Estilos del formulario */
+/* Estilos del formulario dentro del contenedor */
 form {
-   
     display: flex;
     flex-direction: column;
 }
@@ -46,6 +46,7 @@ input {
     border-radius: 4px;
 }
 
+/* Estilos específicos para el botón de enviar del formulario */
 input[type="submit"] {
     background-color: #3498db;
     color: #fff;
@@ -56,37 +57,38 @@ input[type="submit"]:hover {
     background-color: #2980b9;
 }
 
-
-.contenedor__hoteles{
+/* Estilos para la sección de hoteles */
+.contenedor__hoteles {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
 }
-.hoteles{
+
+/* Estilos individuales para cada hotel en la sección de hoteles */
+.hoteles {
     width: 40%;
     margin: 2rem;
     border: 1px solid black;
     padding: 1rem;
 }
 
-
 /* Estilos para mensajes de error */
 .error-message {
     color: #e74c3c;
     margin-bottom: 15px;
 }
-.a_navegacion{
+
+/* Estilos para enlaces de navegación */
+.a_navegacion {
     margin: 1rem;
     text-decoration: none;
     color: white;
     background-color: #0B5ED7;
     padding: 0.5rem;
     border: 1px solid black;
-    border-radius: 10px;       
+    border-radius: 10px;
 }
-.a_navegacion:hover{
+
+.a_navegacion:hover {
     background-color: transparent;
-    
 }
-
-

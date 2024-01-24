@@ -7,13 +7,13 @@
     </head>
     <body>
         <div class="container">
-                <?php
-// Incluye el archivo frontcontroller.php
-        include 'frontcontroller.php';
-        ?>
-        
+            <?php
+            // Incluye el archivo frontcontroller.php
+            include 'frontcontroller.php';
+            ?>
+
         </div>
-    
+
     </body>
 </html>
 
