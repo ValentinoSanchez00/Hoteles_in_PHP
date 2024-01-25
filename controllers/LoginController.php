@@ -51,6 +51,8 @@ class LoginController {
             $_SESSION['id'] = $idusu;
             $_SESSION['nombre'] = $usuarios["nombre"];
             $_SESSION['rol'] = $usuarios["rol"];
+            $diayhora= date("d/m/y | H:i:s");
+            setcookie("ultimavez",$diayhora, time()+20*24*60*60);
 
             // Redirige al usuario a la página de hoteles después de iniciar sesión correctamente.
             header("Location: index.php?controller=Hoteles&action=mostrarHoteles");
@@ -68,7 +70,7 @@ class LoginController {
 
         // Limpia la información de la sesión actual.
         $_SESSION = array();
-
+         setcookie("ultimavez",$diayhora, time()-20*24*60*60);
         // Destruye la sesión actual.
         session_destroy();
 
