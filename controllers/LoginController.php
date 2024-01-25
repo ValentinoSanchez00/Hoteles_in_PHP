@@ -42,9 +42,10 @@ class LoginController {
         }
 
         // Obtiene el id del usuario si las credenciales son válidas.
-        $idusu = $usuarios["id"];
+      
 
         if ($usuarios) {
+              $idusu = $usuarios["id"];
             // Inicia una sesión y guarda información del usuario en variables de sesión.
             session_start();
             $_SESSION['id'] = $idusu;
